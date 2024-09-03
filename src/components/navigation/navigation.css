@@ -1,0 +1,7 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Removes the bullet points from the list */
+  display: flex;
+  gap: 20px; /* Adds space between the list items */
+}
