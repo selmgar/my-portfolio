@@ -1,0 +1,5 @@
+.projects {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 30px;
+}
