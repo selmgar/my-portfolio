@@ -1,0 +1,29 @@
+.footer {
+  align-items: center; /* Aligns the footer children in the center */
+  display: flex;
+  flex-direction: column;
+
+  .links {
+    display: flex;
+    gap: 20px; /* Adds space between the list items */
+    height: 50px;
+    justify-content: center;
+    width: 50px;
+
+    .icon {
+      height: 50px;
+      width: 50px;
+
+      &:hover {
+        cursor: pointer;
+        fill: var(--color-tea-green);
+        transition: fill 0.3s ease;
+      }
+    }
+  }
+
+  p {
+    font-size: 0.9rem; /* Sets the font size to 0.8rem */
+  }
+}
+

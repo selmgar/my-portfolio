@@ -1,16 +1,43 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;  
   line-height: 1.5;
-  font-weight: 400;
-
   background-color: white;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Color theme variables */
+  --color-tea-green: #CCD5AE;
+  --color-beige: #E9EDC9;
+  --color-cornsilk: #FEFAE0;
+  --color-papaya-whip: #FAEDCD;
+  --color-buff: #D4A373;
 }
 
 body {
   margin: 0;
+
+  /* The root element is the full height of the viewport */
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fira Sans", sans-serif;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Removes the bullet points from the list */
 }
