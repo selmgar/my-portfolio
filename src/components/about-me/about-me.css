@@ -1,5 +1,16 @@
 .title {
+  margin-bottom: 20px;
+
   .me {
     color: var(--color-papaya-whip);
   }
+}
+
+.profile-picture {
+  border-radius: 200px;
+  border: 2px solid var(--color-papaya-whip);
+  width: 200px;
+  aspect-ratio: 1;
+  object-fit: cover; /* Ensures the image covers the entire container and doesn't squish with aspect ration*/
+  object-position: top;
 }
