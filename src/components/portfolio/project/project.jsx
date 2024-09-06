@@ -1,9 +1,13 @@
+import imageMap from '../../../assets/imageMap';
+
 import "./project.css";
 
 function Project(props) {
+  const imagePath = imageMap[props.imageName];
+
   return (
     <div className="projectContainer">
-      <img src={`src/assets/${props.imageName}`}></img>
+      {imagePath && <img src={imagePath} alt={props.title}></img>}
       <div className="project-info">
         {props.title}
         <div className="links">
@@ -26,11 +30,11 @@ function Project(props) {
               version="1.1"
               id="Capa_1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
               width="800px"
               height="800px"
               viewBox="0 0 442.04 442.04"
-              xml:space="preserve"
+              xmlSpace="preserve"
               className="icon"
             >
               <g>
