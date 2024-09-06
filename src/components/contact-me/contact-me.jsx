@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+
 import './contact-me.css';
 
 function ContactMe() {
@@ -52,11 +54,24 @@ function ContactMe() {
       return; // Prevent form submission if there are errors
     }
 
-    // Construct the mailto link
-    const mailtoLink = `mailto:selmgar@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}&from=${encodeURIComponent(email)}`;
+    var templateParams = {
+      name,
+      email,
+      message
+    };
 
-    // Redirect to the mailto link
-    window.location.href = mailtoLink;
+    emailjs
+    .send(import.meta.env.VITE_EMAIL_JS_SERVICE_ID, import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID, templateParams, {
+      publicKey: import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
+    })
+    .then(
+      (response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      },
+      (err) => {
+        console.log('FAILED...', err);
+      },
+    );
   };
 
   const isValidEmail = (email) => {
