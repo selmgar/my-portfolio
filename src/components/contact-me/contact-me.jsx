@@ -9,6 +9,7 @@ function ContactMe() {
   const [message, setMessage] = useState('');
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [messageError, setMessageError] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -20,6 +21,11 @@ function ContactMe() {
     setEmailError('');
   };
 
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+    setMessageError('');
+  };
+
   const handleBlur = (e) => {
     const { name, value } = e.target;
     if (value.trim() === '') {
@@ -27,6 +33,8 @@ function ContactMe() {
         setNameError('Name is required');
       } else if (name === 'email') {
         setEmailError('Email is required');
+      } else if (name === 'message') {
+        setMessageError('Message is required');
       }
     } else if (name === 'email' && !isValidEmail(value)) {
       setEmailError('Invalid email address');
@@ -50,6 +58,12 @@ function ContactMe() {
       setEmailError('Invalid email address');
       hasError = true;
     }
+
+    if (!message.trim()) {
+      setMessageError('Message is required');
+      hasError = true;
+    }
+
     if (hasError) {
       return; // Prevent form submission if there are errors
     }
@@ -114,8 +128,10 @@ function ContactMe() {
               id="message"
               name="message"
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={handleMessageChange}
+              onBlur={handleBlur}
             />
+            {messageError && <p className="error-message">{messageError}</p>}
           </div>
           <button type="submit">Submit</button>
         </form>
