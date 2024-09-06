@@ -1,8 +1,39 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [License](#license)
+  - [Questions](#questions)
 
-Currently, two official plugins are available:
+  ## Description
+  Application demonstrating skillset in web development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  ## Installation
+  1. run `npm install`
+
+  2. Create the .env file from the `.env-example`
+      * You need to sign up for an EmailJs account https://www.emailjs.com/
+
+
+  ## Usage
+  run `npm run dev`
+
+  ## Contributing
+  NA
+
+  ## Tests
+  NA
+
+  ## License
+  N/A 
+
+  ## Questions
+  For any questions, please contact me via:
+
+  - GitHub: [selmgar](https://github.com/selmgar)
+  - Email: selmgar@gmail.com
+  
