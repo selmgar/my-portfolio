@@ -1,4 +1,4 @@
-ul {
+.navlist {
   display: flex;
   gap: 20px; /* Adds space between the list items */
 

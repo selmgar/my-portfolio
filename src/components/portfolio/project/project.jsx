@@ -4,10 +4,9 @@ import "./project.css";
 
 function Project(props) {
   const imagePath = imageMap[props.imageName];
-
   return (
     <div className="projectContainer">
-      {imagePath && <img src={imagePath} alt={props.title}></img>}
+      <img src={imagePath} alt={props.title}></img>
       <div className="project-info">
         {props.title}
         <div className="links">
