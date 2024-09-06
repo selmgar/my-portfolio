@@ -16,13 +16,10 @@ section {
     justify-content: space-around;
     width: 100%;
     gap: 50px;
-}
   }
 
   .proficiency-list {
-    display: flex;
     margin-top: 20px;
-    gap: 20px;
     flex-direction: column;
   }
 
