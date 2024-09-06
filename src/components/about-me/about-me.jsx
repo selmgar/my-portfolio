@@ -2,7 +2,7 @@ import './about-me.css';
 
 function AboutMe () {
   return (
-    <div>
+    <div className="component-wrapper">
       <h1 className="title">
         About<span className='me'>Me</span>
       </h1>

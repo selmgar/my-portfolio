@@ -2,7 +2,7 @@ import './resume.css';
 
 function Resume () {
   return (
-    <div>
+    <div className="component-wrapper">
       <h1>Resume</h1>
     </div>
   );

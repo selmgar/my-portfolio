@@ -1,0 +1,67 @@
+.title {
+  span {
+    color: var(--color-papaya-whip);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* Input container styling */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  /* Label styling */
+  label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+
+  /* Input and textarea styling */
+  input,
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: var(--color-buff);
+      outline: none;  
+    }
+  }
+
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    background-color: var(--color-tea-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: var(--color-beige);
+    }
+  }
+
+  /* Error message styling */
+  p {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+}

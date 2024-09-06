@@ -1,3 +1,12 @@
 .title {
-  color: var(--color-tea-green);
+  span {
+    color: var(--color-papaya-whip);
+  }
+}
+
+.projects {
+  display: flex;
+  justify-content: flex-start; 
+  flex-wrap: wrap;
+  gap: 30px;
 }

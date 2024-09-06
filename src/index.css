@@ -41,3 +41,7 @@ ul {
   padding: 0;
   list-style: none; /* Removes the bullet points from the list */
 }
+
+.component-wrapper {
+  margin: 50px;
+}

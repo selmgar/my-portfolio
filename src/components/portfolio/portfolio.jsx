@@ -3,13 +3,16 @@ import Project from './project/project.jsx';
 
 function Portfolio () {
   return (
-    <div>
-      <h1 className='title'>Portfolio</h1>
-      <section class="projects">
-        <Project imageName="" title="Project 1" link="" githubRepo="" />
-        <Project imageName="" title="Project 2" link="" githubRepo="" />
-        <Project imageName="" title="Project 3" link="" githubRepo="" />
-        <Project imageName="" title="Project 4" link="" githubRepo="" />
+    <div className="component-wrapper">
+      <h1 className='title'>
+        Port
+        <span>folio</span>
+      </h1>
+      <section className="projects">
+        <Project imageName="bookshelf.gif" title="Bookshelf" link="https://selmgar.github.io/my-book-list/my-book-list.html" githubRepo="https://github.com/selmgar/my-book-list" />
+        <Project imageName="me.jpg" title="Project 2" link="" githubRepo="" />
+        <Project imageName="me.jpg" title="Project 3" link="" githubRepo="" />
+        <Project imageName="me.jpg" title="Project 4" link="" githubRepo="" />
       </section>
     </div>
   );
