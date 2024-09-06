@@ -1,5 +1,6 @@
-.navlist {
+.nav-list {
   display: flex;
+  flex-direction: row;
   gap: 20px; /* Adds space between the list items */
 
   a {
