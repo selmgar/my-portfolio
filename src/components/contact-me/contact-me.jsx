@@ -95,7 +95,7 @@ function ContactMe() {
 
   return (
     <div className="component-wrapper">
-      <h1 className="title">Contact <span>Me</span></h1>
+      <h1 className="title">Contact<span>Me</span></h1>
       <section>
         <form onSubmit={handleSubmit}>
           <div className="input-container">
