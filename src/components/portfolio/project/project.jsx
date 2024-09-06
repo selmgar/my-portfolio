@@ -3,7 +3,7 @@ import imageMap from '../../../assets/imageMap';
 import "./project.css";
 
 function Project(props) {
-  const imagePath = imageMap[props.imageName];
+  const imagePath = props.imageName ? imageMap[props.imageName] : 'https://placehold.co/200x200';
   return (
     <div className="projectContainer">
       <img src={imagePath} alt={props.title}></img>
