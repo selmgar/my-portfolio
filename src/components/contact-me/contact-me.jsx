@@ -10,6 +10,7 @@ function ContactMe() {
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [messageError, setMessageError] = useState('');
+  const [notification, setNotification] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -81,11 +82,21 @@ function ContactMe() {
     .then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text);
+        setNotification('Your message has been sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
       },
       (err) => {
         console.log('FAILED...', err);
+        setNotification('Failed to send your message. Please try again later.');
       },
-    );
+    ).finally(() => {
+      // Clear the notification after 5 seconds
+      setTimeout(() => {
+        setNotification('');
+      }, 5000);
+    });
   };
 
   const isValidEmail = (email) => {
@@ -134,6 +145,7 @@ function ContactMe() {
             {messageError && <p className="error-message">{messageError}</p>}
           </div>
           <button type="submit">Submit</button>
+          {notification && <div className="notification">{notification}</div>}
         </form>
       </section>
     </div>

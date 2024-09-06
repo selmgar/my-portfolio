@@ -9,6 +9,7 @@ form {
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  position: relative;
 
   /* Input container styling */
   .input-container {
@@ -27,13 +28,13 @@ form {
   /* Input and textarea styling */
   input,
   textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
+    border: 1px solid #ccc;
     box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-size: 16px;
+    padding: 10px;
     transition: border-color 0.3s ease;
+    width: 100%;
 
     &:focus {
       border-color: var(--color-buff);
@@ -65,4 +66,13 @@ form {
     margin-top: 5px;
   }
 
+  .notification {
+    background: var(--color-papaya-whip);
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+    top: -60px;
+  }
 }
