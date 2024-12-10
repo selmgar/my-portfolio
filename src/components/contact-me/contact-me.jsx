@@ -4,104 +4,78 @@ import emailjs from '@emailjs/browser';
 import './contact-me.css';
 
 function ContactMe() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [nameError, setNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [messageError, setMessageError] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
   const [notification, setNotification] = useState('');
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    setNameError('');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setFormErrors({ ...formErrors, [name]: '' });
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setEmailError('');
-  };
+  const validateField = (name, value) => {
+    if (!value.trim()) {
+      return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+    }
 
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
-    setMessageError('');
+    if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return 'Invalid email address';
+    }
+
+    return '';
   };
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    if (value.trim() === '') {
-      if (name === 'name') {
-        setNameError('Name is required');
-      } else if (name === 'email') {
-        setEmailError('Email is required');
-      } else if (name === 'message') {
-        setMessageError('Message is required');
-      }
-    } else if (name === 'email' && !isValidEmail(value)) {
-      setEmailError('Invalid email address');
-    }
+    setFormErrors({ ...formErrors, [name]: validateField(name, value) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let hasError = false;
-
-    if (!name.trim()) {
-      setNameError('Name is required');
-      hasError = true;
+    let errors = {};
+    for (const field in formData) {
+      errors[field] = validateField(field, formData[field]);
     }
 
-    if (!email.trim()) {
-      setEmailError('Email is required');
-      hasError = true;
-    } else if (!isValidEmail(email)) {
-      setEmailError('Invalid email address');
-      hasError = true;
-    }
+    setFormErrors(errors);
 
-    if (!message.trim()) {
-      setMessageError('Message is required');
-      hasError = true;
+    if (Object.values(errors).some((error) => error)) {
+      return; // Prevent submission if there are errors
     }
-
-    if (hasError) {
-      return; // Prevent form submission if there are errors
-    }
-
-    var templateParams = {
-      name,
-      email,
-      message
-    };
 
     emailjs
-    .send(import.meta.env.VITE_EMAIL_JS_SERVICE_ID, import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID, templateParams, {
-      publicKey: import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
-    })
-    .then(
-      (response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setNotification('Your message has been sent successfully!');
-        setName('');
-        setEmail('');
-        setMessage('');
-      },
-      (err) => {
-        console.log('FAILED...', err);
-        setNotification('Failed to send your message. Please try again later.');
-      },
-    ).finally(() => {
-      // Clear the notification after 5 seconds
-      setTimeout(() => {
-        setNotification('');
-      }, 5000);
-    });
-  };
-
-  const isValidEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
+      .send(
+        import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
+        formData,
+        { publicKey: import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY }
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setNotification('Your message has been sent successfully!');
+          setFormData({ name: '', email: '', message: '' });
+        },
+        (err) => {
+          console.log('FAILED...', err);
+          setNotification('Failed to send your message. Please try again later.');
+        }
+      )
+      .finally(() => {
+        setTimeout(() => setNotification(''), 5000);
+      });
   };
 
   return (
@@ -109,41 +83,30 @@ function ContactMe() {
       <h1 className="title">Contact<span>Me</span></h1>
       <section>
         <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={handleNameChange}
-              onBlur={handleBlur}
-            />
-            {nameError && <p className="error-message">{nameError}</p>}
-          </div>
-          <div className="input-container">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={handleEmailChange}
-              onBlur={handleBlur}
-            />
-            {emailError && <p className="error-message">{emailError}</p>}
-          </div>
-          <div className="input-container">
-            <label htmlFor="message">Message:</label>
-            <textarea
-              id="message"
-              name="message"
-              value={message}
-              onChange={handleMessageChange}
-              onBlur={handleBlur}
-            />
-            {messageError && <p className="error-message">{messageError}</p>}
-          </div>
+          {['name', 'email', 'message'].map((field) => (
+            <div className="input-container" key={field}>
+              <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}:</label>
+              {field === 'message' ? (
+                <textarea
+                  id={field}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              ) : (
+                <input
+                  type={field === 'email' ? 'email' : 'text'}
+                  id={field}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              )}
+              {formErrors[field] && <p className="error-message">{formErrors[field]}</p>}
+            </div>
+          ))}
           <button type="submit">Submit</button>
           {notification && <div className="notification">{notification}</div>}
         </form>
