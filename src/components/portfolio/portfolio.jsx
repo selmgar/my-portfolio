@@ -3,7 +3,7 @@ import Project from './project/project.jsx';
 
 function Portfolio () {
   return (
-    <div className="component-wrapper">
+    <div className="component-wrapper portfolio-container">
       <h1 className='title'>
         Port
         <span>folio</span>

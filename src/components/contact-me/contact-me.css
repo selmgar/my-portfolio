@@ -1,78 +1,75 @@
-.title {
-  span {
-    color: var(--color-papaya-whip);
+.contact-me-container {
+  .title {
+    margin-bottom: 20px;
+    span {
+      color: var(--color-papaya-whip);
+    }
   }
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  position: relative;
-
-  /* Input container styling */
-  .input-container {
+  
+  form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
-  }
-
-  /* Label styling */
-  label {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #555;
-  }
-
-  /* Input and textarea styling */
-  input,
-  textarea {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
-    font-size: 16px;
-    padding: 10px;
-    transition: border-color 0.3s ease;
+    gap: 20px;
     width: 100%;
-
-    &:focus {
-      border-color: var(--color-buff);
-      outline: none;  
+    position: relative;
+  
+    .input-container {
+      display: flex;
+      flex-direction: column;
     }
-  }
-
-  /* Button styling */
-  button {
-    padding: 10px 20px;
-    background-color: var(--color-tea-green);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-
-    &:hover {
-      background-color: var(--color-beige);
+  
+    label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #555;
     }
-  }
-
-  /* Error message styling */
-  p {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-
-  .notification {
-    background: var(--color-papaya-whip);
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 5px 10px;
-    position: absolute;
-    right: 0;
-    top: -60px;
+  
+    input,
+    textarea {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box; /* Ensures padding doesn't affect width */
+      font-size: 16px;
+      padding: 10px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+  
+      &:focus {
+        border-color: var(--color-buff);
+        outline: none;  
+      }
+    }
+  
+    button {
+      padding: 10px 20px;
+      background-color: var(--color-tea-green);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+  
+      &:hover {
+        background-color: var(--color-beige);
+      }
+    }
+  
+    .error-message {
+      color: var(--color-error);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  
+    .notification {
+      background: var(--color-papaya-whip);
+      border-radius: 5px;
+      font-size: 14px;
+      padding: 5px 10px;
+      position: absolute;
+      right: 0;
+      top: -60px;
+    }
   }
 }

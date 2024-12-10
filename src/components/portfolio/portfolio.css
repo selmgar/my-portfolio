@@ -1,13 +1,16 @@
-.title {
-  span {
-    color: var(--color-papaya-whip);
+.portfolio-container {
+  .title {
+    margin-bottom: 20px;
+    span {
+      color: var(--color-papaya-whip);
+    }
   }
-}
-
-.projects {
-  display: flex;
-  justify-content: flex-start; 
-  flex-direction: row;;
-  flex-wrap: wrap;
-  gap: 30px;
+  
+  .projects {
+    display: flex;
+    justify-content: flex-start; 
+    flex-direction: row;;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
 }

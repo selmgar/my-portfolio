@@ -79,7 +79,7 @@ function ContactMe() {
   };
 
   return (
-    <div className="component-wrapper">
+    <div className="component-wrapper contact-me-container">
       <h1 className="title">Contact<span>Me</span></h1>
       <section>
         <form onSubmit={handleSubmit}>
@@ -104,7 +104,7 @@ function ContactMe() {
                   onBlur={handleBlur}
                 />
               )}
-              {formErrors[field] && <p className="error-message">{formErrors[field]}</p>}
+              {formErrors[field] && <div className="error-message">{formErrors[field]}</div>}
             </div>
           ))}
           <button type="submit">Submit</button>
