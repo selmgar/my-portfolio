@@ -84,6 +84,7 @@ function Resume() {
             <ul className="proficiency-list">
               <li>Git</li>
               <li>GitHub</li>
+              <li>Gitlab</li>
             </ul>
           </div>
         </div>
