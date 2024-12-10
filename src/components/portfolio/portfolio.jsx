@@ -11,6 +11,7 @@ function Portfolio () {
       <section className="projects">
         <Project imageName="bananaflix.gif" title="BananaFlix" link="https://bananaflix-fdyk.onrender.com/" githubRepo="https://github.com/selmgar/bananaflix" />
         <Project imageName="bookshelf.gif" title="Bookshelf" link="https://selmgar.github.io/my-book-list/my-book-list.html" githubRepo="https://github.com/selmgar/my-book-list" />
+        <Project imageName="coding-quiz.gif" title="Coding Quiz" link="https://coding-quiz-6lep.onrender.com" githubRepo="https://github.com/selmgar/coding-quiz" />
         <Project imageName="weatherdashboard.gif" title="Weather Dash" link="https://weather-dashboard-zhx7.onrender.com/" githubRepo="https://github.com/selmgar/Weather-Dashboard" />
         <Project title="Project 3" link="" githubRepo="" />
         <Project title="Project 4" link="" githubRepo="" />
