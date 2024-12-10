@@ -1,6 +1,6 @@
 # My Portfolio
 
-Deployed to Netlify: https://selenas-portfolio.netlify.app/portfolio
+Deployed to Netlify: https://selenas-portfolio.netlify.app
 
 https://github.com/user-attachments/assets/69e05425-9ac4-424b-b30f-ca88aa15255c
 
