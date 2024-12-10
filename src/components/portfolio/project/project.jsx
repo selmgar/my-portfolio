@@ -1,9 +1,20 @@
-import imageMap from '../../../assets/imageMap';
+import bananaflix from '../../../assets/bananaflix.gif';
+import booksearch from '../../..//assets/booksearch.gif';
+import bookshelf from '../../../assets/bookshelf.gif';
+import codingquiz from '../../../assets/coding-quiz.gif';
+import weatherdashboard from '../../../assets/weatherdashboard.gif';
 
 import "./project.css";
 
 function Project(props) {
-  const imagePath = props.imageName ? imageMap[props.imageName] : 'https://placehold.co/200x200';
+  const projectImageMap = {
+    'bananaflix': bananaflix,
+    'booksearch': booksearch,
+    'bookshelf': bookshelf,
+    'weatherdashboard': weatherdashboard,
+    'coding-quiz': codingquiz,
+  }
+  const imagePath = props.imageName ? projectImageMap[props.imageName] : 'https://placehold.co/200x200';
   return (
     <div className="projectContainer">
       <img src={imagePath} alt={props.title}></img>
