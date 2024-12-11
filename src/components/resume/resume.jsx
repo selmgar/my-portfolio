@@ -63,6 +63,7 @@ function Resume() {
             <ul className="proficiency-list">
               <li>Bootstrap</li>
               <li>CSS</li>
+              <li>Cypress</li>
               <li>HTML</li>
               <li>JavaScript</li>
               <li>React</li>
